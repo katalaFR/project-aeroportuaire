@@ -3,21 +3,21 @@
 
     function tentativeLogin(){
       
-        $identifiant = $_GET["identifiant"];
-        $motDePasse = hash("sha256", $_GET["motDePasse"]);
-
-        
+        $identifiant = $_POST["nom"];
+        $motDePasse = hash("sha256", $_POST["mdp"]);
+                
         $liaison = mysqli_connect("localhost", "root", "", "Aeroport") or exit(mysqli_error());
 
         
-        $requete = "SELECT * FROM employe WHERE mail = '$identifiant' AND mdpHache = '$motDePasse'";
+        $requete = "SELECT * FROM employer WHERE first_name = '$identifiant' AND mdp = '$motDePasse'";
         $resultat = mysqli_query($liaison, $requete);
         $resultat = mysqli_fetch_assoc($resultat);
 
-        if ($resultat["idEmploye"] != false){
-            header("location:"."http://localhost/SiteAeroport/index.php");
+        if ($resultat["id"] != false){
+            header("location:"."./index.php");
         } else {
-            header("Location:"."http://localhost/SiteAeroport/login.php"."?logfailed=true");
+            header("Location:"."./login.php"."?logfailed=true");
         }
+
     }
    ?>

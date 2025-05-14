@@ -11,9 +11,9 @@
         <section id="pageLogin">
             <h1>Connexion</h1>
             <div id="containerLogin">
-                <form action="connection.php" method="get">
-                    <input class="inputLogin" type="text" name="identifiant" placeholder="Identifiant">
-                    <input class="inputLogin" type="password" name="motDePasse" placeholder="Mot de passe">
+                <form action="connection.php" method="POST">
+                    <input class="inputLogin" type="text" name="nom" id="nom" placeholder="ton nom" required>
+                    <input class="inputLogin" type="password" name="mdp" id="mdp" placeholder="Mot de passe" required>
                     <input class="boutonValider" name="boutonValider" type="submit" value="Valider">
                 </form>
             </div>
@@ -27,8 +27,7 @@
                         <p>Veuillez réessayer</p>
                     </div>
                 </section>
-            ");
-            }
+                ");}
         ?>
     </body>
 </html>
